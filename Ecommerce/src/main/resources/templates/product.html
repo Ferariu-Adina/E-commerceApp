@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Product List</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body> 
+	<form th:action="@{/addToCart}">
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Product</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${products.empty}">
+				<td colspan="3">No Products Available</td>
+			</tr>
+			<tr th:each="product : ${products}">
+				<td><span th:text="${product.id}"> ID </span></td>
+				<td><span th:text="${product.name}"> NAME </span></td>
+				<td><span th:text="${product.price}"> PRICE </span></td>
+				<td><button type="submit">Add to cart</button></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	<form th:action="@{/getaddProduct}">
+	<button type="submit">Add another product</button>
+	</form>
+	<p> Get back to the <a href = "/index">menu</a></p>
+
+</body>
+</html>

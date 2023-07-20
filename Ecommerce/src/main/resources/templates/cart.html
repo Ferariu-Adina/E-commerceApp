@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>ShoppingCart</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${session.shoppingCart.allProducts.empty}">
+				<td colspan="3">No Products Added to Cart</td>
+				<td colspan="3">You can add products to cart <a href = "/addProduct">here</a></td>
+	</tr>
+    
+       <!-- <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td>Rs.<span th:text="${item.price}"></span></td>
+    </tr>
+    <tr th:if="${products.empty}">
+				<td colspan="3">No Products Available</td>
+			</tr>
+			<tr th:each="product : ${products}">-->
+			<tr th:each="product : ${session.shoppingCart.allProducts}">
+				<td><span th:text="${product.id}"> ID </span></td>
+				<td><span th:text="${product.name}"> NAME </span></td>
+				<td><span th:text="${product.price}"> PRICE </span></td> 
+			</tr>
+    </tbody>
+</table>
+<p> Get back to the <a href = "/index">menu</a></p>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Book List</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${books.empty}">
+				<td colspan="3">No Books Available</td>
+			</tr>
+			<tr th:each="book : ${books}">
+				<td><span th:text="${book.title}"> Title </span></td>
+				<td><span th:text="${book.author}"> Author </span></td>
+				<td><span th:text="${book.description}"> Description </span></td>
+				<td><a th:href="@{/addToList}" class="btn btn-warning" role="button"> Add to ReadingList</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<p> Get back to the <a href = "/index">menu</a></p>
+</body>
+</html>
