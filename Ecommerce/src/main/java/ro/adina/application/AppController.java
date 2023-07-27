@@ -72,14 +72,14 @@ public class AppController {
 		return "index";
 	}
 	
-	@GetMapping("/product")
-	public String product(@RequestParam(defaultValue = "world") Long id, Model model) {
-		
-		model.addAttribute("name", id);
-		model.addAttribute("greetings", productRepo.findById(id));
-		
-		return "product";
-	}
+//	@GetMapping("/product")
+//	public String product(@RequestParam(defaultValue = "world") Long id, Model model) {
+//		
+//		model.addAttribute("name", id);
+//		model.addAttribute("greetings", productRepo.findById(id));
+//		
+//		return "product";
+//	}
 	
 	@GetMapping("/getaddProduct")
 	public String addProduct( Model model) {
@@ -106,6 +106,7 @@ public class AppController {
 	@GetMapping("/allproducts")
 	public String Greetings(Model model) {
 		model.addAttribute("products", productRepo.findAll());
+		model.addAttribute("product", new Products());
 		return "product";
 	}
 	

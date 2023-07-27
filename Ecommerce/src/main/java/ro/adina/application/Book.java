@@ -1,12 +1,18 @@
 package ro.adina.application;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
-public class Book extends Products{
+@Table(name = "book")
+public class Book {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -17,7 +23,15 @@ public class Book extends Products{
 	private String author;
 	private String description;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
 	
+	
+	
+	public Book() {
+		super();
+	}
+
 	public Book(String title, String author, String description) {
 		super();
 		this.title = title;

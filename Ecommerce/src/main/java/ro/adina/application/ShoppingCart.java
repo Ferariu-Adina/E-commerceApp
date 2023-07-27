@@ -3,7 +3,13 @@ package ro.adina.application;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+
 public class ShoppingCart {
+	
+	Long id;
 	
 	
 	private List<Products> allProducts;
@@ -17,6 +23,15 @@ public class ShoppingCart {
 	}
 	
 
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 
 	public List<Products> getAllProducts() {
@@ -60,7 +75,6 @@ public class ShoppingCart {
 	}
 
 	public double getTotal() {
-		totalPrice = 0;
 		for(Products product : allProducts) {
 			
 			totalPrice += product.price;

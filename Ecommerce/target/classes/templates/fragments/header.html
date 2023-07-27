@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<ul th:fragment="navigation">
+    <li>
+        <a th:href="@{/}">Home</a>
+    </li>
+    <li>
+        <a th:href="@{/allproducts}">Shop</a>
+    </li>
+    <li>
+        <a th:href="@{/addToCart}">Cart</a>
+    </li>
+</ul>
+</body>
+</html>
